@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deuce Discord Bot - Legal</title>
   <style>
     body {
@@ -39,25 +39,23 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#terms">Terms of Service</a>
-    <a href="#privacy">Privacy Policy</a>
+    <a href="/">Home</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/privacy.html">Privacy Policy</a>
   </nav>
 
-  <!-- Main content -->
-  <div class="container" id="home">
+  <div class="container">
     <h1>Deuce Bot Legal Information</h1>
     <p>Welcome to the official legal page for the Deuce Discord bot. Please read the following documents carefully:</p>
     <ul>
-      <li><a href="#terms">Terms of Service</a></li>
-      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="/terms.html">Terms of Service</a></li>
+      <li><a href="/privacy.html">Privacy Policy</a></li>
     </ul>
   </div>
 
-  <!-- Terms of Service Section -->
-  <div class="container" id="terms">
+  <!-- terms.html -->
+  <div class="container">
     <h1>Terms of Service</h1>
     <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
     <ul>
@@ -69,8 +67,8 @@
     <p>If you do not agree with these terms, please remove Deuce from your server.</p>
   </div>
 
-  <!-- Privacy Policy Section -->
-  <div class="container" id="privacy">
+  <!-- privacy.html -->
+  <div class="container">
     <h1>Privacy Policy</h1>
     <p>This Privacy Policy explains how Deuce collects and uses information:</p>
     <ul>
