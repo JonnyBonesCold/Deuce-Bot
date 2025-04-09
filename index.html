@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deuce Bot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,83 +15,126 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: #121212;
-      color: #e0e0e0;
+      color: #ddd;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Navigation Bar */
+    /* Navbar */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #1f1f1f;
-      padding: 1.5rem;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #2b2b2b, #121212);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 20px;
       font-weight: 700;
       text-transform: uppercase;
+      margin: 0 20px;
     }
+
     nav a:hover {
       color: #57b3ff;
     }
 
-    /* Header */
+    /* Hero Section */
     header {
-      background: linear-gradient(135deg, #0e0e0e, #1f1c2c);
-      padding: 6rem 2rem;
-      text-align: center;
+      height: 100vh;
+      background: url('https://via.placeholder.com/1920x1080/000000/fff?text=Deuce+Bot') no-repeat center center/cover;
       color: #fff;
-      border-bottom: 2px solid #444;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
     }
+
     header h1 {
       font-size: 4rem;
-      margin-bottom: 1rem;
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
+
     header p {
       font-size: 1.25rem;
+      font-weight: 300;
       opacity: 0.8;
       margin-bottom: 2rem;
     }
 
-    /* Main Section */
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
+    /* Buttons */
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
 
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      color: #57b3ff;
+    .button {
+      background-color: #57b3ff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
     }
 
-    /* Box Style for TOS and Privacy */
-    .box {
-      background-color: #1f1f1f;
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease;
-    }
-    .box:hover {
+    .button:hover {
+      background-color: #3884d2;
       transform: scale(1.05);
     }
 
-    .box h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    /* Content Section */
+    section {
+      padding: 4rem 2rem;
+      background-color: #1f1f1f;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
       font-weight: 700;
       color: #57b3ff;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .box {
+      background-color: #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+    }
+
+    .box h3 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
     }
 
     .box p {
@@ -99,70 +142,80 @@
       opacity: 0.9;
     }
 
-    /* Links */
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 2rem;
-    }
-    .link {
-      background-color: #57b3ff;
-      color: #fff;
-      padding: 1rem 2rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .link:hover {
-      background-color: #3884d2;
+    .box ul {
+      list-style: none;
+      margin: 1rem 0;
+      padding-left: 1.5rem;
     }
 
+    .box ul li {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
     footer {
-      background-color: #1c1c1c;
+      background-color: #111;
+      color: #bbb;
       padding: 2rem;
       text-align: center;
-      color: #fff;
-      margin-top: 5rem;
-    }
-    footer p {
       font-size: 1rem;
-      opacity: 0.8;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
+
+    footer p {
+      opacity: 0.7;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
     <a href="#home">Home</a>
     <a href="#tos">Terms</a>
     <a href="#privacy">Privacy</a>
   </nav>
 
-  <!-- Header -->
+  <!-- Hero Section -->
   <header id="home">
     <h1>Deuce Bot</h1>
+    <p>Your ultimate companion for Discord server management</p>
+    <div class="button-group">
+      <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank" class="button">Invite Bot</a>
+      <a href="https://top.gg/bot/1232290597893832777" target="_blank" class="button">Upvote Bot</a>
+    </div>
+  </header>
 
-  <!-- Invite and Upvote Links -->
-  <section id="links">
-    <h2>Invite & Upvote</h2>
-    <div class="links">
-      <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank" class="link">Invite Deuce Bot</a>
-      <a href="https://top.gg/bot/1232290597893832777" target="_blank" class="link">Upvote Deuce Bot</a>
+  <!-- Features Section -->
+  <section>
+    <h2 class="section-title">Features</h2>
+    <div class="box">
+      <h3>Advanced Commands</h3>
+      <p>Deuce Bot offers a wide range of powerful commands for moderation, utilities, and fun.</p>
+    </div>
+    <div class="box">
+      <h3>Customizable Settings</h3>
+      <p>Easily configure the bot to match your server’s needs with customizable options.</p>
+    </div>
+    <div class="box">
+      <h3>24/7 Support</h3>
+      <p>Our support team is available around the clock to assist with any issues or queries.</p>
     </div>
   </section>
 
   <!-- Terms of Service Section -->
   <section id="tos">
+    <h2 class="section-title">Terms of Service</h2>
     <div class="box">
-      <h3>Terms of Service</h3>
-      <p>By using Deuce Bot, you agree to the following terms:</p>
+      <h3>Important Terms</h3>
       <ul>
-        <li>Follow Discord's Terms of Service.</li>
-        <li>No malicious use of the bot.</li>
+        <li>By using Deuce Bot, you agree to follow all Discord Terms of Service.</li>
+        <li>Bot usage should not be for malicious purposes.</li>
         <li>We reserve the right to modify the bot at any time.</li>
       </ul>
     </div>
@@ -170,20 +223,20 @@
 
   <!-- Privacy Policy Section -->
   <section id="privacy">
+    <h2 class="section-title">Privacy Policy</h2>
     <div class="box">
-      <h3>Privacy Policy</h3>
-      <p>Deuce Bot collects minimal data:</p>
+      <h3>Your Privacy Matters</h3>
       <ul>
-        <li>Server and user IDs, and basic message content for feature improvements.</li>
-        <li>No personal data or sensitive information is collected.</li>
-        <li>Data is securely stored and never shared with third parties.</li>
+        <li>We collect minimal data to improve functionality.</li>
+        <li>No personal data is stored or shared with third parties.</li>
+        <li>Data is securely managed with the utmost care.</li>
       </ul>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Deuce Bot. All rights reserved.</p>
+    <p>&copy; 2025 Deuce Bot. All rights reserved. | <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank" style="color: #57b3ff;">Invite Deuce Bot</a> | <a href="https://top.gg/bot/1232290597893832777" target="_blank" style="color: #57b3ff;">Upvote Deuce Bot</a></p>
   </footer>
 
 </body>
