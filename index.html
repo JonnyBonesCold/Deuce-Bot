@@ -12,28 +12,31 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #000000, #003300);
+      background: radial-gradient(circle, #001a00 0%, #000000 100%);
       color: #e4e4e4;
       overflow-x: hidden;
     }
 
     /* Navigation Bar */
     nav {
-      background: rgba(0, 50, 0, 0.9);
-      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 40, 0, 0.95);
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       position: sticky;
       top: 0;
       z-index: 10;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     nav a {
+      margin: 0 1.5rem;
       color: #00ff66;
       text-decoration: none;
-      margin: 0 1.5rem;
       font-size: 1.1rem;
       font-weight: bold;
+      letter-spacing: 1px;
       text-transform: uppercase;
       transition: color 0.3s ease, transform 0.3s ease;
     }
@@ -43,65 +46,79 @@
       transform: scale(1.1);
     }
 
-    /* Header */
-    header {
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 6rem 2rem;
+      padding: 8rem 2rem;
       background: linear-gradient(135deg, #003300, #000000);
       color: #ffffff;
       border-bottom: 5px solid #00ff66;
       animation: fadeIn 1.5s ease;
     }
 
-    header h1 {
+    .hero h1 {
       font-size: 4rem;
-      margin-bottom: 1rem;
       color: #00ff66;
       text-shadow: 0 0 20px #00ff66, 0 0 40px #006633;
+      margin-bottom: 1rem;
     }
 
-    header p {
-      font-size: 1.5rem;
-      opacity: 0.9;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      opacity: 0.8;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Section */
+    /* Section Styles */
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
       padding: 2rem;
     }
 
+    .section {
+      margin: 4rem 0;
+    }
+
     .section h2 {
       font-size: 2.5rem;
+      text-align: center;
       margin-bottom: 1.5rem;
       color: #00ff66;
-      text-transform: uppercase;
-      text-align: center;
       position: relative;
     }
 
     .section h2::after {
       content: '';
       display: block;
-      width: 100px;
+      width: 80px;
       height: 3px;
       background: #1fff85;
       margin: 0.5rem auto 0;
       border-radius: 10px;
     }
 
-    /* FAQ */
+    /* FAQ Section */
     .faq {
-      background: rgba(0, 80, 0, 0.8);
+      background: rgba(0, 50, 0, 0.9);
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
     }
 
     .faq dt {
@@ -128,30 +145,28 @@
     }
 
     @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    ul li {
-      margin-bottom: 10px;
-    }
-
-    ul li::marker {
-      color: #1fff85;
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
-      background: rgba(0, 50, 0, 0.9);
+      padding: 1.5rem 0;
+      background: rgba(0, 30, 0, 0.9);
       color: #8fffbf;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
 
-    footer span {
-      color: #00ff66;
-      font-weight: bold;
+    footer p {
+      margin: 0;
     }
   </style>
 </head>
@@ -164,15 +179,14 @@
     <a href="#privacy">Privacy</a>
   </nav>
 
-  <!-- Header -->
-  <header>
+  <!-- Hero Section -->
+  <section class="hero">
     <h1>Deuce Bot</h1>
-    <p>Welcome to the future of Discord companions.</p>
-  </header>
+    <p>The ultimate companion for enhancing your Discord experience.</p>
+  </section>
 
-  <!-- Main Content -->
+  <!-- FAQ Section -->
   <div class="container">
-    <!-- FAQ Section -->
     <section class="section faq">
       <h2>FAQ</h2>
       <dl>
