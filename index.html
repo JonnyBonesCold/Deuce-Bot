@@ -8,55 +8,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset and Base Styling */
+    /* Base Styles */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #00040f, #001a33);
-      color: #d4d4d4;
+      background: linear-gradient(135deg, #000000, #003300);
+      color: #e4e4e4;
       overflow-x: hidden;
     }
 
     /* Navigation Bar */
     nav {
-      background: rgba(0, 20, 40, 0.9);
+      background: rgba(0, 50, 0, 0.9);
       padding: 1rem 2rem;
-      text-align: center;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     nav a {
-      color: #00bfff;
+      color: #00ff66;
       text-decoration: none;
       margin: 0 1.5rem;
       font-size: 1.1rem;
       font-weight: bold;
+      text-transform: uppercase;
       transition: color 0.3s ease, transform 0.3s ease;
     }
 
     nav a:hover {
-      color: #1f8eff;
+      color: #1fff85;
       transform: scale(1.1);
     }
 
-    /* Header Section */
+    /* Header */
     header {
       text-align: center;
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #001a33, #002b4f);
+      background: linear-gradient(135deg, #003300, #000000);
       color: #ffffff;
-      border-bottom: 5px solid #00bfff;
+      border-bottom: 5px solid #00ff66;
       animation: fadeIn 1.5s ease;
     }
 
     header h1 {
       font-size: 4rem;
       margin-bottom: 1rem;
-      color: #00bfff;
-      text-shadow: 0 0 20px #00bfff, 0 0 40px #004080;
+      color: #00ff66;
+      text-shadow: 0 0 20px #00ff66, 0 0 40px #006633;
     }
 
     header p {
@@ -69,18 +70,17 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* General Container */
+    /* Section */
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
     }
 
-    /* Section Headers */
     .section h2 {
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
-      color: #00bfff;
+      color: #00ff66;
       text-transform: uppercase;
       text-align: center;
       position: relative;
@@ -89,16 +89,16 @@
     .section h2::after {
       content: '';
       display: block;
-      width: 80px;
+      width: 100px;
       height: 3px;
-      background: #1f8eff;
+      background: #1fff85;
       margin: 0.5rem auto 0;
       border-radius: 10px;
     }
 
-    /* FAQ Section */
+    /* FAQ */
     .faq {
-      background: rgba(0, 20, 40, 0.8);
+      background: rgba(0, 80, 0, 0.8);
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -107,13 +107,13 @@
     .faq dt {
       font-weight: bold;
       margin-top: 1rem;
-      color: #1f8eff;
+      color: #1fff85;
       cursor: pointer;
       transition: color 0.3s ease;
     }
 
     .faq dt:hover {
-      color: #00bfff;
+      color: #00ff66;
     }
 
     .faq dd {
@@ -132,27 +132,25 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Lists */
     ul li {
       margin-bottom: 10px;
     }
 
     ul li::marker {
-      color: #1f8eff;
+      color: #1fff85;
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
-      background: rgba(0, 10, 20, 0.9);
-      color: #8faad2;
+      background: rgba(0, 50, 0, 0.9);
+      color: #8fffbf;
       font-size: 0.9rem;
-      margin-top: 4rem;
     }
 
     footer span {
-      color: #00bfff;
+      color: #00ff66;
       font-weight: bold;
     }
   </style>
@@ -169,7 +167,7 @@
   <!-- Header -->
   <header>
     <h1>Deuce Bot</h1>
-    <p>Welcome to the next generation of Discord companions.</p>
+    <p>Welcome to the future of Discord companions.</p>
   </header>
 
   <!-- Main Content -->
@@ -187,7 +185,7 @@
       </dl>
     </section>
 
-    <!-- Terms of Service Section -->
+    <!-- Terms of Service -->
     <section id="terms" class="section">
       <h2>Terms of Service</h2>
       <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
@@ -199,7 +197,7 @@
       </ul>
     </section>
 
-    <!-- Privacy Policy Section -->
+    <!-- Privacy Policy -->
     <section id="privacy" class="section">
       <h2>Privacy Policy</h2>
       <p>This explains how Deuce collects and uses info:</p>
@@ -207,7 +205,7 @@
         <li>May collect server and user IDs, message content.</li>
         <li>No real names, emails, or personal info is collected.</li>
         <li>Data is secure and not shared with third parties.</li>
-        <li>Contact developer on Discord for any concern.</li>
+        <li>Contact developer on Discord for any concerns.</li>
       </ul>
     </section>
   </div>
