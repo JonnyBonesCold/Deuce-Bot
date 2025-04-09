@@ -2,88 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deuce Discord Bot - Legal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #1f1f1f, #3c3c3c);
-      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
       margin: 0;
       padding: 0;
+      background: #0f0f0f;
+      color: #fff;
     }
     nav {
-      background-color: #111;
+      background: #1a1a1a;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
     nav a {
-      color: #ddd;
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
+      margin-right: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #1abc9c;
+      color: #00bcd4;
     }
     .container {
       max-width: 900px;
       margin: 3rem auto;
-      background: #222;
+      background: #1e1e1e;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-    h1 {
-      color: #1abc9c;
-      font-weight: 800;
-    }
-    h2 {
-      color: #f1f1f1;
-      border-bottom: 2px solid #444;
-      padding-bottom: 5px;
-      margin-top: 2.5rem;
+    h1, h2 {
+      color: #00bcd4;
     }
     ul {
-      padding-left: 1.5rem;
-    }
-    li {
-      margin-bottom: 0.8rem;
-    }
-    a.inline {
-      color: #1abc9c;
-      text-decoration: underline;
+      margin-left: 1.2rem;
     }
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #aaa;
+      margin-top: 4rem;
+      padding: 1rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#terms">Terms of Service</a>
-    <a href="#privacy">Privacy Policy</a>
+    <div>
+      <a href="#">Home</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#privacy">Privacy Policy</a>
+    </div>
   </nav>
 
-  <div class="container" id="home">
-    <h1>Deuce Bot Legal Info</h1>
-    <p>Welcome to the official legal page for the Deuce Discord Bot. Below you'll find our <a class="inline" href="#terms">Terms of Service</a> and <a class="inline" href="#privacy">Privacy Policy</a>. Please review them carefully.</p>
-  </div>
+  <div class="container">
+    <h1>Deuce Bot Legal Information</h1>
+    <p>Welcome to the official legal page for the Deuce Discord bot. Please read the following documents carefully:</p>
 
-  <div class="container" id="terms">
-    <h2>Terms of Service</h2>
+    <ul>
+      <li><a href="#terms">Terms of Service</a></li>
+      <li><a href="#privacy">Privacy Policy</a></li>
+    </ul>
+
+    <h2 id="terms">Terms of Service</h2>
     <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
     <ul>
       <li>You must follow Discord's Terms of Service and Community Guidelines.</li>
@@ -92,16 +81,14 @@
       <li>Usage of Deuce Bot may be logged for moderation and feature improvement purposes.</li>
     </ul>
     <p>If you do not agree with these terms, please remove Deuce from your server.</p>
-  </div>
 
-  <div class="container" id="privacy">
-    <h2>Privacy Policy</h2>
+    <h2 id="privacy">Privacy Policy</h2>
     <p>This Privacy Policy explains how Deuce collects and uses information:</p>
     <ul>
-      <li>Deuce Bot may collect server IDs, user IDs, and message content for moderation and functionality.</li>
+      <li>Deuce Bot may collect server IDs, user IDs, and message content for moderation and feature functionality.</li>
       <li>No personal information (like email addresses or real names) is collected.</li>
       <li>All collected data is kept secure and is not shared with third parties.</li>
-      <li>You may contact the bot developer via Discord for any concerns about your data.</li>
+      <li>You may contact the bot developer via Discord for concerns about your data.</li>
     </ul>
     <p>By using Deuce Bot, you consent to this privacy policy.</p>
   </div>
