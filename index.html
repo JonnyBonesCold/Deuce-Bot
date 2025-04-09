@@ -3,99 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deuce Discord Bot - Legal</title>
+  <title>Deuce Discord Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
       margin: 0;
-      padding: 0;
-      background: #0f0f0f;
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
       color: #fff;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
     }
     nav {
-      background: #1a1a1a;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      background-color: #111;
+      padding: 1rem;
+      text-align: center;
     }
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-right: 1.5rem;
+      margin: 0 1rem;
       font-weight: bold;
-      transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #00bcd4;
+      text-decoration: underline;
     }
-    .container {
-      max-width: 900px;
-      margin: 3rem auto;
-      background: #1e1e1e;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    h1, h2 {
-      color: #00bcd4;
-    }
-    ul {
-      margin-left: 1.2rem;
-    }
-    footer {
+    header {
       text-align: center;
-      margin-top: 4rem;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      animation: fadeIn 2s ease;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      opacity: 0.8;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .toggle-theme {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: #444;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .section {
+      margin-top: 3rem;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: #1c1c1c;
       padding: 1rem;
-      color: #888;
+      border-radius: 8px;
+      margin: 1rem;
+      width: 200px;
+      text-align: center;
+    }
+    .faq {
+      margin-top: 2rem;
+    }
+    .faq dt {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .faq dd {
+      margin: 0 0 1rem 1rem;
+      opacity: 0.9;
+    }
+    .discord-widget {
+      margin-top: 3rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
 
   <nav>
-    <div>
-      <a href="#">Home</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="#privacy">Privacy Policy</a>
-    </div>
+    <a href="#">Home</a>
+    <a href="#terms">Terms</a>
+    <a href="#privacy">Privacy</a>
   </nav>
 
+  <header>
+    <h1>Deuce Bot</h1>
+    <p>Your friendly and powerful Discord companion.</p>
+  </header>
+
   <div class="container">
-    <h1>Deuce Bot Legal Information</h1>
-    <p>Welcome to the official legal page for the Deuce Discord bot. Please read the following documents carefully:</p>
+    <section class="section stats">
+      <div class="stat">
+        <h3>521</h3>
+        <p>Servers</p>
+      </div>
+      <div class="stat">
+        <h3>24,102</h3>
+        <p>Users</p>
+      </div>
+      <div class="stat">
+        <h3>135,090</h3>
+        <p>Commands Used</p>
+      </div>
+    </section>
 
-    <ul>
-      <li><a href="#terms">Terms of Service</a></li>
-      <li><a href="#privacy">Privacy Policy</a></li>
-    </ul>
+    <section class="section faq">
+      <h2>FAQ</h2>
+      <dl>
+        <dt>Is Deuce safe?</dt>
+        <dd>Yes, we collect only minimal data and never share it.</dd>
+        <dt>Does Deuce require any special permissions?</dt>
+        <dd>Only the ones needed for moderation and fun commands.</dd>
+        <dt>Is it free?</dt>
+        <dd>Yes! No payments required to use the bot.</dd>
+      </dl>
+    </section>
 
-    <h2 id="terms">Terms of Service</h2>
-    <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
-    <ul>
-      <li>You must follow Discord's Terms of Service and Community Guidelines.</li>
-      <li>You may not use Deuce for malicious purposes, including harassment, spamming, or abuse.</li>
-      <li>We reserve the right to update or discontinue the bot at any time without notice.</li>
-      <li>Usage of Deuce Bot may be logged for moderation and feature improvement purposes.</li>
-    </ul>
-    <p>If you do not agree with these terms, please remove Deuce from your server.</p>
+    <section id="terms" class="section">
+      <h2>Terms of Service</h2>
+      <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
+      <ul>
+        <li>You must follow Discord's Terms of Service and Community Guidelines.</li>
+        <li>You may not use Deuce for malicious purposes.</li>
+        <li>We may update or remove the bot at any time without notice.</li>
+        <li>Usage may be logged for moderation and features.</li>
+      </ul>
+    </section>
 
-    <h2 id="privacy">Privacy Policy</h2>
-    <p>This Privacy Policy explains how Deuce collects and uses information:</p>
-    <ul>
-      <li>Deuce Bot may collect server IDs, user IDs, and message content for moderation and feature functionality.</li>
-      <li>No personal information (like email addresses or real names) is collected.</li>
-      <li>All collected data is kept secure and is not shared with third parties.</li>
-      <li>You may contact the bot developer via Discord for concerns about your data.</li>
-    </ul>
-    <p>By using Deuce Bot, you consent to this privacy policy.</p>
+    <section id="privacy" class="section">
+      <h2>Privacy Policy</h2>
+      <p>This explains how Deuce collects and uses info:</p>
+      <ul>
+        <li>May collect server and user IDs, message content.</li>
+        <li>No real names, emails, or personal info is collected.</li>
+        <li>Data is secure and not shared with third parties.</li>
+        <li>Contact developer on Discord for any concern.</li>
+      </ul>
+    </section>
+
+    <div class="discord-widget">
+      <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+    </div>
   </div>
 
-  <footer>
-    &copy; 2025 Deuce Bot. All rights reserved.
-  </footer>
-
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.style.backgroundColor === 'white') {
+        body.style.backgroundColor = '#0e0e0e';
+        body.style.color = '#fff';
+      } else {
+        body.style.backgroundColor = 'white';
+        body.style.color = '#000';
+      }
+    }
+  </script>
 </body>
 </html>
