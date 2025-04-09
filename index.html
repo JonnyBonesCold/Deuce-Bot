@@ -11,8 +11,9 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #0e0e0e;
+      background: linear-gradient(135deg, #1e1e2f, #0e0e0e);
       color: #e4e4e4;
+      overflow-x: hidden;
     }
     .container {
       max-width: 1000px;
@@ -20,19 +21,23 @@
       padding: 2rem;
     }
     nav {
-      background-color: #111;
+      background: rgba(17, 17, 17, 0.9);
       padding: 1rem;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
     }
     nav a {
       color: #00d8ff;
       text-decoration: none;
       margin: 0 1rem;
       font-weight: bold;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
     nav a:hover {
-      color: #00ffaa;
+      color: #ff92df;
+      transform: scale(1.1);
     }
     header {
       text-align: center;
@@ -40,11 +45,13 @@
       background: linear-gradient(135deg, #1f1c2c, #5c5470);
       animation: fadeIn 2s ease;
       color: #f5f5f5;
+      border-bottom: 5px solid #ff92df;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 0.5rem;
       color: #fff;
+      text-shadow: 0 0 10px #ff92df;
     }
     header p {
       font-size: 1.25rem;
@@ -58,9 +65,21 @@
       margin-top: 3rem;
     }
     .section h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       color: #84f8ff;
+      text-transform: uppercase;
+      text-align: center;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #00d8ff;
+      margin: 0.5rem auto 0;
+      border-radius: 10px;
     }
     .stats {
       display: flex;
@@ -69,28 +88,44 @@
     }
     .stat {
       background: #1c1c1c;
-      padding: 1rem;
-      border-radius: 8px;
+      padding: 1.5rem;
+      border-radius: 12px;
       margin: 1rem;
       width: 200px;
       text-align: center;
-      box-shadow: 0 0 10px rgba(0, 216, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 216, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(0, 216, 255, 0.4);
     }
     .stat h3 {
       color: #00ffd5;
-      font-size: 1.75rem;
+      font-size: 2rem;
+      margin: 0;
     }
     .stat p {
       color: #aaa;
+      margin: 0.5rem 0 0;
     }
     .faq dt {
       font-weight: bold;
       margin-top: 1rem;
       color: #ff92df;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .faq dt:hover {
+      color: #84f8ff;
     }
     .faq dd {
       margin: 0 0 1rem 1rem;
       opacity: 0.9;
+      display: none;
+    }
+    .faq dt.active + dd {
+      display: block;
     }
     ul li {
       margin-bottom: 10px;
@@ -105,18 +140,15 @@
   </style>
 </head>
 <body>
-
   <nav>
     <a href="#">Home</a>
     <a href="#terms">Terms</a>
     <a href="#privacy">Privacy</a>
   </nav>
-
   <header>
     <h1>Deuce Bot</h1>
     <p>Your friendly and powerful Discord companion.</p>
   </header>
-
   <div class="container">
     <section class="section stats">
       <div class="stat">
@@ -132,7 +164,6 @@
         <p>Commands Used</p>
       </div>
     </section>
-
     <section class="section faq">
       <h2>FAQ</h2>
       <dl>
@@ -144,10 +175,8 @@
         <dd>Yes! No payments required to use the bot.</dd>
       </dl>
     </section>
-
     <section id="terms" class="section">
       <h2>Terms of Service</h2>
-      <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
       <ul>
         <li>You must follow Discord's Terms of Service and Community Guidelines.</li>
         <li>You may not use Deuce for malicious purposes.</li>
@@ -155,10 +184,8 @@
         <li>Usage may be logged for moderation and features.</li>
       </ul>
     </section>
-
     <section id="privacy" class="section">
       <h2>Privacy Policy</h2>
-      <p>This explains how Deuce collects and uses info:</p>
       <ul>
         <li>May collect server and user IDs, message content.</li>
         <li>No real names, emails, or personal info is collected.</li>
@@ -166,11 +193,16 @@
         <li>Contact developer on Discord for any concern.</li>
       </ul>
     </section>
-
     <div class="discord-widget">
       <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
     </div>
   </div>
-
+  <script>
+    document.querySelectorAll('.faq dt').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
