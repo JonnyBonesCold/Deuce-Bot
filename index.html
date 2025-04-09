@@ -3,83 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deuce Discord Bot</title>
+  <title>Deuce Bot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Base styles */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #0e0e0e;
+      background: linear-gradient(135deg, #001a12, #003d2e);
       color: #e4e4e4;
+      overflow-x: hidden;
     }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
+
     nav {
-      background-color: #111;
+      background: rgba(0, 50, 30, 0.9);
       padding: 1rem;
       text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+
     nav a {
-      color: #00d8ff;
+      color: #00ff99;
       text-decoration: none;
-      margin: 0 1rem;
+      margin: 0 1.5rem;
       font-weight: bold;
-      transition: color 0.3s;
+      font-size: 1.1rem;
+      transition: color 0.3s, transform 0.3s;
     }
+
     nav a:hover {
-      color: #00ffaa;
+      color: #33ffcc;
+      transform: scale(1.1);
     }
+
     header {
       text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(135deg, #1f1c2c, #5c5470);
-      animation: fadeIn 2s ease;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #002b20, #005a3e);
       color: #f5f5f5;
+      border-bottom: 5px solid #00ff99;
+      animation: fadeIn 1.5s ease;
     }
+
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      color: #fff;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #00ff99;
+      text-shadow: 0 0 20px #00ff99, 0 0 40px #007a59;
     }
+
     header p {
-      font-size: 1.25rem;
-      opacity: 0.85;
+      font-size: 1.5rem;
+      opacity: 0.9;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
     .section {
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
+
     .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #84f8ff;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #00ff99;
+      text-transform: uppercase;
+      text-align: center;
+      position: relative;
     }
+
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #00c27a;
+      margin: 0.5rem auto 0;
+      border-radius: 10px;
+    }
+
+    .faq {
+      background: rgba(0, 40, 25, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
     .faq dt {
       font-weight: bold;
       margin-top: 1rem;
-      color: #ff92df;
+      color: #33ffcc;
+      cursor: pointer;
+      transition: color 0.3s;
     }
+
+    .faq dt:hover {
+      color: #00ff99;
+    }
+
     .faq dd {
       margin: 0 0 1rem 1rem;
       opacity: 0.9;
+      display: none;
     }
+
+    .faq dt.active + dd {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     ul li {
       margin-bottom: 10px;
     }
+
     ul li::marker {
-      color: #00c2ff;
+      color: #00c27a;
     }
-    .discord-widget {
-      margin-top: 3rem;
+
+    footer {
       text-align: center;
+      padding: 2rem;
+      background: rgba(0, 30, 20, 0.9);
+      color: #9ee6bf;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #00ff99;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #33ffcc;
     }
   </style>
 </head>
@@ -93,7 +170,7 @@
 
   <header>
     <h1>Deuce Bot</h1>
-    <p>Your friendly and powerful Discord companion.</p>
+    <p>Your ultimate modern Discord companion.</p>
   </header>
 
   <div class="container">
@@ -130,11 +207,19 @@
         <li>Contact developer on Discord for any concern.</li>
       </ul>
     </section>
-
-    <div class="discord-widget">
-      <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
-    </div>
   </div>
+
+  <footer>
+    <p>Built with ❤️ by <a href="#">Deuce Bot Team</a>. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq dt').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
