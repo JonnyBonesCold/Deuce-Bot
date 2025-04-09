@@ -8,53 +8,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Base styles */
+    /* Reset and Base Styling */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #001a12, #003d2e);
-      color: #e4e4e4;
+      background: linear-gradient(135deg, #00040f, #001a33);
+      color: #d4d4d4;
       overflow-x: hidden;
     }
 
+    /* Navigation Bar */
     nav {
-      background: rgba(0, 50, 30, 0.9);
-      padding: 1rem;
+      background: rgba(0, 20, 40, 0.9);
+      padding: 1rem 2rem;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     nav a {
-      color: #00ff99;
+      color: #00bfff;
       text-decoration: none;
       margin: 0 1.5rem;
-      font-weight: bold;
       font-size: 1.1rem;
-      transition: color 0.3s, transform 0.3s;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     nav a:hover {
-      color: #33ffcc;
+      color: #1f8eff;
       transform: scale(1.1);
     }
 
+    /* Header Section */
     header {
       text-align: center;
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #002b20, #005a3e);
-      color: #f5f5f5;
-      border-bottom: 5px solid #00ff99;
+      background: linear-gradient(135deg, #001a33, #002b4f);
+      color: #ffffff;
+      border-bottom: 5px solid #00bfff;
       animation: fadeIn 1.5s ease;
     }
 
     header h1 {
       font-size: 4rem;
       margin-bottom: 1rem;
-      color: #00ff99;
-      text-shadow: 0 0 20px #00ff99, 0 0 40px #007a59;
+      color: #00bfff;
+      text-shadow: 0 0 20px #00bfff, 0 0 40px #004080;
     }
 
     header p {
@@ -67,20 +69,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* General Container */
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
     }
 
-    .section {
-      margin-top: 4rem;
-    }
-
+    /* Section Headers */
     .section h2 {
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
-      color: #00ff99;
+      color: #00bfff;
       text-transform: uppercase;
       text-align: center;
       position: relative;
@@ -91,13 +91,14 @@
       display: block;
       width: 80px;
       height: 3px;
-      background: #00c27a;
+      background: #1f8eff;
       margin: 0.5rem auto 0;
       border-radius: 10px;
     }
 
+    /* FAQ Section */
     .faq {
-      background: rgba(0, 40, 25, 0.8);
+      background: rgba(0, 20, 40, 0.8);
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -106,13 +107,13 @@
     .faq dt {
       font-weight: bold;
       margin-top: 1rem;
-      color: #33ffcc;
+      color: #1f8eff;
       cursor: pointer;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     .faq dt:hover {
-      color: #00ff99;
+      color: #00bfff;
     }
 
     .faq dd {
@@ -131,49 +132,49 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Lists */
     ul li {
       margin-bottom: 10px;
     }
 
     ul li::marker {
-      color: #00c27a;
+      color: #1f8eff;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
-      background: rgba(0, 30, 20, 0.9);
-      color: #9ee6bf;
+      background: rgba(0, 10, 20, 0.9);
+      color: #8faad2;
       font-size: 0.9rem;
       margin-top: 4rem;
     }
 
-    footer a {
-      color: #00ff99;
-      text-decoration: none;
+    footer span {
+      color: #00bfff;
       font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    footer a:hover {
-      color: #33ffcc;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <a href="#">Home</a>
     <a href="#terms">Terms</a>
     <a href="#privacy">Privacy</a>
   </nav>
 
+  <!-- Header -->
   <header>
     <h1>Deuce Bot</h1>
-    <p>Your ultimate modern Discord companion.</p>
+    <p>Welcome to the next generation of Discord companions.</p>
   </header>
 
+  <!-- Main Content -->
   <div class="container">
+    <!-- FAQ Section -->
     <section class="section faq">
       <h2>FAQ</h2>
       <dl>
@@ -186,6 +187,7 @@
       </dl>
     </section>
 
+    <!-- Terms of Service Section -->
     <section id="terms" class="section">
       <h2>Terms of Service</h2>
       <p>By using the Deuce Discord Bot, you agree to the following terms:</p>
@@ -197,6 +199,7 @@
       </ul>
     </section>
 
+    <!-- Privacy Policy Section -->
     <section id="privacy" class="section">
       <h2>Privacy Policy</h2>
       <p>This explains how Deuce collects and uses info:</p>
@@ -209,11 +212,13 @@
     </section>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <p>Built with ❤️ by <a href="#">Deuce Bot Team</a>. All rights reserved.</p>
+    <p>&copy; 2025 Deuce Bot. All rights reserved.</p>
   </footer>
 
   <script>
+    // Toggle FAQ visibility
     document.querySelectorAll('.faq dt').forEach(item => {
       item.addEventListener('click', () => {
         item.classList.toggle('active');
