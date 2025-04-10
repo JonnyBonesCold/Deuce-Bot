@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,23 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096" type="image/png">
   <style>
-    /* Your existing style rules */
-  </style>
-</head>
-
-
-<header id="home">
-  <img src="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096" 
-       alt="Profile Photo" 
-       style="border-radius: 50%; width: 150px; height: 150px; margin-bottom: 20px;">
-  <h1>Deuce Bot</h1>
-  <div class="button-group">
-    <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank" class="button">Invite Bot</a>
-    <a href="https://top.gg/bot/1232290597893832777" target="_blank" class="button">Upvote Bot</a>
-  </div>
-</header>
-
-<!DOCTYPE html>
+    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -89,6 +75,13 @@
       font-weight: 300;
       opacity: 0.8;
       margin-bottom: 2rem;
+    }
+
+    header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
     }
 
     /* Buttons */
@@ -185,7 +178,6 @@
     footer p {
       opacity: 0.7;
     }
-
   </style>
 </head>
 <body>
@@ -199,6 +191,7 @@
 
   <!-- Hero Section -->
   <header id="home">
+    <img src="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096" alt="Profile Photo">
     <h1>Deuce Bot</h1>
     <div class="button-group">
       <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank" class="button">Invite Bot</a>
@@ -251,7 +244,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Deuce Bot. All rights reserved. | <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank" style="color: #57b3ff;">Invite Deuce Bot</a> | <a href="https://top.gg/bot/1232290597893832777" target="_blank" style="color: #57b3ff;">Upvote Deuce Bot</a></p>
+    <p>&copy; 2025 Deuce Bot. All rights reserved. | <a href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot" target="_blank">Invite Bot</a></p>
   </footer>
 
 </body>
