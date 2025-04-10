@@ -99,7 +99,7 @@
     </div>
   </section>
 
-  <section class="commands-box" id="commandsSection">
+  <section id="commands" class="commands-box">
     <div class="box">
       <h3>1 - Information Commands</h3>
       <ul>
@@ -164,7 +164,7 @@
   <script>
     // Function to toggle the visibility of the commands section
     document.getElementById('commandsButton').addEventListener('click', function() {
-      var commandsSection = document.getElementById('commandsSection');
+      var commandsSection = document.getElementById('commands');
       if (commandsSection.style.display === 'none' || commandsSection.style.display === '') {
         commandsSection.style.display = 'block';
       } else {
@@ -175,3 +175,4 @@
 
 </body>
 </html>
+
