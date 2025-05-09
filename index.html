@@ -92,8 +92,9 @@
         color: var(--accent-color);
       }
 
-      /* Header – two-column layout */
+      /* Header – two-column layout with reduced height */
       header {
+        height: 45vh; /* reduced height so that subsequent sections are closer */
         padding-top: 80px; /* to clear the fixed nav */
         background: url("https://via.placeholder.com/1920x1080/181818/ffffff?text=Deuce+Bot")
           no-repeat center center/cover;
@@ -114,7 +115,7 @@
       .header-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem;
+        padding: 1rem 2rem;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -134,7 +135,7 @@
         }
       }
 
-      /* Left column: Profile info */
+      /* Left column: Profile Info */
       .header-left {
         flex: 1;
         min-width: 300px;
@@ -183,7 +184,7 @@
         transform: scale(0.98);
       }
 
-      /* Right column: Terms of Service as a glass card */
+      /* Right column: Terms of Service – Glass card */
       .header-right {
         flex: 1;
         min-width: 300px;
@@ -214,7 +215,7 @@
         margin-bottom: 0.5rem;
       }
 
-      /* Section titles for the below sections */
+      /* Section Titles */
       .section-title {
         font-size: 2rem;
         font-weight: 700;
@@ -223,7 +224,7 @@
         color: var(--accent-color);
       }
 
-      /* Generic box style for sections (glass effect) */
+      /* Generic Box Style for Sections (Glass Effect) */
       .box {
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
@@ -254,14 +255,20 @@
         margin-bottom: 0.5rem;
       }
 
-      /* Privacy and Commands sections container */
+      /* Privacy Section – now with reduced padding to appear closer to the header */
+      section#privacy {
+        background-color: var(--section-bg);
+        padding: 2rem 1rem;
+      }
+
       .section-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem;
+        padding: 0 2rem;
       }
 
-      section {
+      /* Commands Section remains unchanged */
+      section#commands {
         background-color: var(--section-bg);
         padding: 4rem 0;
       }
@@ -285,7 +292,8 @@
           flex-direction: column;
           text-align: center;
         }
-        .header-left, .header-right {
+        .header-left,
+        .header-right {
           padding: 1rem;
         }
         .header-left h1 {
@@ -322,34 +330,40 @@
             <a
               href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot"
               target="_blank"
-              >Invite</a>
+              >Invite</a
+            >
             <a
               href="https://top.gg/bot/1232290597893832777/vote"
               target="_blank"
-              >Upvote</a>
+              >Upvote</a
+            >
           </div>
         </div>
-        <!-- Right Column: Terms of Service – Anchor this with id="tos" -->
+        <!-- Right Column: Terms of Service (Anchor: id="tos") -->
         <div class="header-right fade-in" id="tos">
           <div class="glass-card">
             <h3>Terms of Service</h3>
             <ul>
               <li>Respect other users and their privacy.</li>
               <li>Do not use the bot for illegal activities.</li>
-              <li>Maintain respectful behavior while interacting with the bot.</li>
+              <li>
+                Maintain respectful behavior while interacting with the bot.
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </header>
-    <!-- Privacy Section -->
+
+    <!-- Privacy Section – now appears immediately after the header -->
     <section id="privacy">
       <div class="section-container fade-in">
         <h2 class="section-title">Privacy Policy</h2>
         <div class="box">
           <h3>Data Collection</h3>
           <p>
-            We may collect information such as user interactions and preferences for the purpose of improving the bot's functionality.
+            We may collect information such as user interactions and preferences
+            for the purpose of improving the bot's functionality.
           </p>
           <p>Your personal data will not be shared with third parties.</p>
         </div>
@@ -368,7 +382,9 @@
             <li>!historyserbia - History of Serbia</li>
             <li>!historykorea - History of Korea</li>
             <li>!byzantium - History of Byzantium</li>
-            <li>!empires - Most important empires for Orthodox Christianity</li>
+            <li>
+              !empires - Most important empires for Orthodox Christianity
+            </li>
           </ul>
         </div>
         <!-- Country Capitals and Times -->
@@ -389,7 +405,7 @@
             <li>!bahrain</li>
           </ul>
         </div>
-        <!-- Games / Fun -->
+        <!-- Games/Fun -->
         <div class="box">
           <h3>Games/Fun</h3>
           <ul>
