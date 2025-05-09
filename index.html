@@ -26,7 +26,7 @@
     />
     <style>
       :root {
-        /* Dark mode palette with subtle muted accents */
+        /* A dark, muted palette with a red accent for a modern, trustworthy feel */
         --bg-color: #181818;
         --nav-bg: #202020;
         --overlay-color: rgba(24, 24, 24, 0.75);
@@ -34,7 +34,7 @@
         --glass-bg: rgba(42, 42, 42, 0.6);
         --glass-border: rgba(255, 255, 255, 0.1);
         --text-color: #e0e0e0;
-        --accent-color: #ff0000; /* red accent */
+        --accent-color: #ff0000;
         --button-bg: #ff0000;
         --button-hover-bg: #e60000;
       }
@@ -94,8 +94,8 @@
 
       /* Header – two-column layout with reduced height */
       header {
-        height: 45vh; /* reduced height so that subsequent sections are closer */
-        padding-top: 80px; /* to clear the fixed nav */
+        height: 40vh; /* Reduced height so subsequent sections are visible */
+        padding-top: 80px; /* Clear the fixed nav */
         background: url("https://via.placeholder.com/1920x1080/181818/ffffff?text=Deuce+Bot")
           no-repeat center center/cover;
         position: relative;
@@ -117,29 +117,20 @@
         margin: 0 auto;
         padding: 1rem 2rem;
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         position: relative;
         z-index: 2;
       }
 
-      /* Fade-in animation for a modern touch */
-      .fade-in {
-        animation: fadeIn 1s ease forwards;
-        opacity: 0;
-      }
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
+      .header-left,
+      .header-right {
+        flex: 1;
+        padding: 1rem;
       }
 
       /* Left column: Profile Info */
       .header-left {
-        flex: 1;
-        min-width: 300px;
-        padding: 1rem;
         text-align: left;
       }
 
@@ -152,27 +143,25 @@
       }
 
       .header-left h1 {
-        font-size: 3rem;
-        letter-spacing: 2px;
+        font-size: 2.5rem;
+        letter-spacing: 1px;
         margin-bottom: 1rem;
       }
 
       .button-group {
         display: flex;
         gap: 1rem;
-        margin-top: 1rem;
       }
 
       .button-group a {
         background-color: var(--button-bg);
-        border: none;
         padding: 0.8rem 1.5rem;
         border-radius: 9999px;
-        color: #000;
         font-weight: 600;
         text-transform: uppercase;
         text-decoration: none;
         transition: background-color 0.3s ease, transform 0.2s ease;
+        color: #000;
       }
 
       .button-group a:hover {
@@ -184,24 +173,22 @@
         transform: scale(0.98);
       }
 
-      /* Right column: Terms of Service – Glass card */
+      /* Right column: Terms of Service as a glass card */
       .header-right {
-        flex: 1;
-        min-width: 300px;
-        padding: 1rem;
+        text-align: left;
       }
 
       .glass-card {
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
         border-radius: 8px;
-        padding: 2rem;
+        padding: 1.5rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(10px);
       }
 
       .glass-card h3 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         margin-bottom: 1rem;
       }
 
@@ -215,7 +202,18 @@
         margin-bottom: 0.5rem;
       }
 
-      /* Section Titles */
+      /* Privacy & Commands Sections */
+      section {
+        background-color: var(--section-bg);
+        padding: 3rem 1rem;
+      }
+
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
       .section-title {
         font-size: 2rem;
         font-weight: 700;
@@ -224,7 +222,6 @@
         color: var(--accent-color);
       }
 
-      /* Generic Box Style for Sections (Glass Effect) */
       .box {
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
@@ -255,24 +252,6 @@
         margin-bottom: 0.5rem;
       }
 
-      /* Privacy Section – now with reduced padding to appear closer to the header */
-      section#privacy {
-        background-color: var(--section-bg);
-        padding: 2rem 1rem;
-      }
-
-      .section-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      /* Commands Section remains unchanged */
-      section#commands {
-        background-color: var(--section-bg);
-        padding: 4rem 0;
-      }
-
       /* Footer */
       footer {
         background-color: var(--nav-bg);
@@ -297,7 +276,7 @@
           padding: 1rem;
         }
         .header-left h1 {
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
       }
     </style>
@@ -316,11 +295,11 @@
       </div>
     </nav>
 
-    <!-- Header Section with two columns -->
+    <!-- Header Section: Two-Column Layout -->
     <header id="home">
       <div class="header-container">
         <!-- Left Column: Profile Info -->
-        <div class="header-left fade-in">
+        <div class="header-left">
           <img
             src="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096"
             alt="Profile Photo"
@@ -340,30 +319,27 @@
           </div>
         </div>
         <!-- Right Column: Terms of Service (Anchor: id="tos") -->
-        <div class="header-right fade-in" id="tos">
+        <div class="header-right" id="tos">
           <div class="glass-card">
             <h3>Terms of Service</h3>
             <ul>
               <li>Respect other users and their privacy.</li>
               <li>Do not use the bot for illegal activities.</li>
-              <li>
-                Maintain respectful behavior while interacting with the bot.
-              </li>
+              <li>Maintain respectful behavior while interacting with the bot.</li>
             </ul>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Privacy Section – now appears immediately after the header -->
+    <!-- Privacy Section: Visible Immediately After the Header -->
     <section id="privacy">
-      <div class="section-container fade-in">
+      <div class="section-container">
         <h2 class="section-title">Privacy Policy</h2>
         <div class="box">
           <h3>Data Collection</h3>
           <p>
-            We may collect information such as user interactions and preferences
-            for the purpose of improving the bot's functionality.
+            We may collect information such as user interactions and preferences for the purpose of improving the bot's functionality.
           </p>
           <p>Your personal data will not be shared with third parties.</p>
         </div>
@@ -372,9 +348,8 @@
 
     <!-- Commands Section -->
     <section id="commands">
-      <div class="section-container fade-in">
+      <div class="section-container">
         <h2 class="section-title">Commands</h2>
-        <!-- History Commands -->
         <div class="box">
           <h3>History</h3>
           <ul>
@@ -382,12 +357,9 @@
             <li>!historyserbia - History of Serbia</li>
             <li>!historykorea - History of Korea</li>
             <li>!byzantium - History of Byzantium</li>
-            <li>
-              !empires - Most important empires for Orthodox Christianity
-            </li>
+            <li>!empires - Most important empires for Orthodox Christianity</li>
           </ul>
         </div>
-        <!-- Country Capitals and Times -->
         <div class="box">
           <h3>Country Capitals and Times</h3>
           <ul>
@@ -405,7 +377,6 @@
             <li>!bahrain</li>
           </ul>
         </div>
-        <!-- Games/Fun -->
         <div class="box">
           <h3>Games/Fun</h3>
           <ul>
@@ -417,7 +388,6 @@
             <li>/serverinfo - Shows small info about current server</li>
           </ul>
         </div>
-        <!-- Albums -->
         <div class="box">
           <h3>Albums</h3>
           <ul>
@@ -429,7 +399,6 @@
             <li>/invincible</li>
           </ul>
         </div>
-        <!-- Lyrics -->
         <div class="box">
           <h3>Lyrics</h3>
           <ul>
