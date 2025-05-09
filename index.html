@@ -24,17 +24,17 @@
       href="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096"
       type="image/png"
     />
-
     <style>
       :root {
-        /* Dark mode palette with a red accent */
+        /* Dark mode palette with subtle muted accents */
         --bg-color: #181818;
         --nav-bg: #202020;
-        --header-overlay: rgba(24, 24, 24, 0.7);
+        --overlay-color: rgba(24, 24, 24, 0.75);
         --section-bg: #242424;
-        --box-bg: #2a2a2a;
-        --text-color: #ffffff;
-        --accent-color: #ff0000;
+        --glass-bg: rgba(42, 42, 42, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --text-color: #e0e0e0;
+        --accent-color: #ff0000; /* red accent */
         --button-bg: #ff0000;
         --button-hover-bg: #e60000;
       }
@@ -82,7 +82,7 @@
       nav .menu a {
         color: var(--text-color);
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 600;
         margin: 0 1rem;
         text-transform: uppercase;
         transition: color 0.3s ease;
@@ -92,10 +92,10 @@
         color: var(--accent-color);
       }
 
-      /* Header with a two-column layout */
+      /* Header – two-column layout */
       header {
-        padding-top: 80px; /* accommodates fixed nav */
-        background: url("https://via.placeholder.com/1920x1080/181818/fff?text=Deuce+Bot")
+        padding-top: 80px; /* to clear the fixed nav */
+        background: url("https://via.placeholder.com/1920x1080/181818/ffffff?text=Deuce+Bot")
           no-repeat center center/cover;
         position: relative;
       }
@@ -107,24 +107,34 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: var(--header-overlay);
+        background: var(--overlay-color);
         z-index: 1;
       }
 
-      /* Header container uses flex to split into two columns */
       .header-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
         position: relative;
         z-index: 2;
       }
 
-      /* Left column: name, picture, and buttons */
+      /* Fade-in animation for a modern touch */
+      .fade-in {
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Left column: Profile info */
       .header-left {
         flex: 1;
         min-width: 300px;
@@ -142,13 +152,14 @@
 
       .header-left h1 {
         font-size: 3rem;
-        margin-bottom: 1rem;
         letter-spacing: 2px;
+        margin-bottom: 1rem;
       }
 
       .button-group {
         display: flex;
         gap: 1rem;
+        margin-top: 1rem;
       }
 
       .button-group a {
@@ -172,85 +183,87 @@
         transform: scale(0.98);
       }
 
-      /* Right column: Terms of Service */
+      /* Right column: Terms of Service as a glass card */
       .header-right {
         flex: 1;
         min-width: 300px;
         padding: 1rem;
       }
 
-      .header-right .box {
-        background-color: var(--box-bg);
+      .glass-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: 8px;
         padding: 2rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
       }
 
-      .header-right .box h3 {
+      .glass-card h3 {
         font-size: 1.75rem;
         margin-bottom: 1rem;
-        font-weight: 600;
       }
 
-      .header-right .box ul {
+      .glass-card ul {
         list-style: none;
         padding-left: 1rem;
       }
 
-      .header-right .box ul li {
+      .glass-card li {
         font-size: 1rem;
         margin-bottom: 0.5rem;
       }
 
-      /* Info section: Privacy Policy & Commands in a two-column layout */
-      section#info {
-        padding: 4rem 2rem;
-        background-color: var(--section-bg);
-      }
-
-      .info-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        gap: 2rem;
-      }
-
-      .info-box {
-        flex: 1;
-        min-width: 300px;
-      }
-
-      .info-box h2 {
+      /* Section titles for the below sections */
+      .section-title {
         font-size: 2rem;
-        color: var(--accent-color);
-        margin-bottom: 1rem;
+        font-weight: 700;
         text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--accent-color);
       }
 
-      .info-box .box {
-        background-color: var(--box-bg);
+      /* Generic box style for sections (glass effect) */
+      .box {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: 8px;
         padding: 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
       }
 
-      .info-box .box h3 {
+      .box:hover {
+        transform: translateY(-5px);
+      }
+
+      .box h3 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
       }
 
-      .info-box .box p,
-      .info-box .box ul li {
-        font-size: 1rem;
-      }
-
-      .info-box .box ul {
+      .box ul {
         list-style: none;
         padding-left: 1rem;
+      }
+
+      .box ul li {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Privacy and Commands sections container */
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      section {
+        background-color: var(--section-bg);
+        padding: 4rem 0;
       }
 
       /* Footer */
@@ -266,13 +279,13 @@
         opacity: 0.7;
       }
 
+      /* Responsive Styles */
       @media (max-width: 768px) {
         .header-container {
           flex-direction: column;
           text-align: center;
         }
-        .header-left,
-        .header-right {
+        .header-left, .header-right {
           padding: 1rem;
         }
         .header-left h1 {
@@ -282,20 +295,24 @@
     </style>
   </head>
   <body>
+    <!-- Navigation Bar -->
     <nav>
       <div class="logo">
         <a href="#home">Deuce Bot</a>
       </div>
       <div class="menu">
         <a href="#home">Home</a>
-        <a href="#info">Info</a>
+        <a href="#tos">TOS</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#commands">Commands</a>
       </div>
     </nav>
 
-    <!-- Header with two columns: left for image & name, right for Terms of Service -->
+    <!-- Header Section with two columns -->
     <header id="home">
       <div class="header-container">
-        <div class="header-left">
+        <!-- Left Column: Profile Info -->
+        <div class="header-left fade-in">
           <img
             src="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096"
             alt="Profile Photo"
@@ -305,17 +322,16 @@
             <a
               href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot"
               target="_blank"
-              >Invite</a
-            >
+              >Invite</a>
             <a
               href="https://top.gg/bot/1232290597893832777/vote"
               target="_blank"
-              >Upvote</a
-            >
+              >Upvote</a>
           </div>
         </div>
-        <div class="header-right">
-          <div class="box">
+        <!-- Right Column: Terms of Service – Anchor this with id="tos" -->
+        <div class="header-right fade-in" id="tos">
+          <div class="glass-card">
             <h3>Terms of Service</h3>
             <ul>
               <li>Respect other users and their privacy.</li>
@@ -327,81 +343,88 @@
       </div>
     </header>
 
-    <!-- Info Section with Privacy Policy and Commands -->
-    <section id="info">
-      <div class="info-container">
-        <div class="info-box">
-          <h2>Privacy Policy</h2>
-          <div class="box">
-            <h3>Data Collection</h3>
-            <p>
-              We may collect information such as user interactions and preferences
-              for the purpose of improving the bot's functionality.
-            </p>
-            <p>Your personal data will not be shared with third parties.</p>
-          </div>
-        </div>
-        <div class="info-box">
-          <h2>Commands</h2>
-          <div class="box">
-            <h3>History</h3>
-            <ul>
-              <li>/georgia - History of Georgia</li>
-              <li>!historyserbia - History of Serbia</li>
-              <li>!historykorea - History of Korea</li>
-              <li>!byzantium - History of Byzantium</li>
-              <li>!empires - Most important empires for Orthodox Christianity</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h3>Country Capitals and Times</h3>
-            <ul>
-              <li>!georgia</li>
-              <li>!serbia</li>
-              <li>!korea</li>
-              <li>!japan</li>
-              <li>!greece</li>
-              <li>!czechia</li>
-              <li>!uk</li>
-              <li>!latvia</li>
-              <li>!croatia</li>
-              <li>!poland</li>
-              <li>!russia</li>
-              <li>!bahrain</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h3>Games/Fun</h3>
-            <ul>
-              <li>/tictactoe - Tic Tac Toe</li>
-              <li>/rps - Rock Paper Scissors</li>
-              <li>/donate - Donate money to Deuce</li>
-              <li>/balance - See Deuce's Balance</li>
-              <li>/deuceinfo - Small info about Deuce</li>
-              <li>/serverinfo - Shows Small info about current Server</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h3>Albums</h3>
-            <ul>
-              <li>/aronep</li>
-              <li>/swansongs</li>
-              <li>/callmebigdeuce</li>
-              <li>/ninelives</li>
-              <li>/nightmare</li>
-              <li>/invincible</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h3>Lyrics</h3>
-            <ul>
-              <li>/deucelyrics - Show's lyrics of any Deuce's song.</li>
-            </ul>
-          </div>
+    <!-- Privacy Section -->
+    <section id="privacy">
+      <div class="section-container fade-in">
+        <h2 class="section-title">Privacy Policy</h2>
+        <div class="box">
+          <h3>Data Collection</h3>
+          <p>
+            We may collect information such as user interactions and preferences for the purpose of improving the bot's functionality.
+          </p>
+          <p>Your personal data will not be shared with third parties.</p>
         </div>
       </div>
     </section>
 
+    <!-- Commands Section -->
+    <section id="commands">
+      <div class="section-container fade-in">
+        <h2 class="section-title">Commands</h2>
+        <!-- History Commands -->
+        <div class="box">
+          <h3>History</h3>
+          <ul>
+            <li>/georgia - History of Georgia</li>
+            <li>!historyserbia - History of Serbia</li>
+            <li>!historykorea - History of Korea</li>
+            <li>!byzantium - History of Byzantium</li>
+            <li>!empires - Most important empires for Orthodox Christianity</li>
+          </ul>
+        </div>
+        <!-- Country Capitals and Times -->
+        <div class="box">
+          <h3>Country Capitals and Times</h3>
+          <ul>
+            <li>!georgia</li>
+            <li>!serbia</li>
+            <li>!korea</li>
+            <li>!japan</li>
+            <li>!greece</li>
+            <li>!czechia</li>
+            <li>!uk</li>
+            <li>!latvia</li>
+            <li>!croatia</li>
+            <li>!poland</li>
+            <li>!russia</li>
+            <li>!bahrain</li>
+          </ul>
+        </div>
+        <!-- Games / Fun -->
+        <div class="box">
+          <h3>Games/Fun</h3>
+          <ul>
+            <li>/tictactoe - Tic Tac Toe</li>
+            <li>/rps - Rock Paper Scissors</li>
+            <li>/donate - Donate money to Deuce</li>
+            <li>/balance - See Deuce's Balance</li>
+            <li>/deuceinfo - Small info about Deuce</li>
+            <li>/serverinfo - Shows small info about current server</li>
+          </ul>
+        </div>
+        <!-- Albums -->
+        <div class="box">
+          <h3>Albums</h3>
+          <ul>
+            <li>/aronep</li>
+            <li>/swansongs</li>
+            <li>/callmebigdeuce</li>
+            <li>/ninelives</li>
+            <li>/nightmare</li>
+            <li>/invincible</li>
+          </ul>
+        </div>
+        <!-- Lyrics -->
+        <div class="box">
+          <h3>Lyrics</h3>
+          <ul>
+            <li>/deucelyrics - Displays lyrics for a Deuce track</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
       <p>Deuce Bot &copy; 2025 | All Rights Reserved</p>
     </footer>
