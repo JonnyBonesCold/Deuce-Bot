@@ -8,8 +8,8 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
-      gtag('config', 'G-SJ1CZBV3FF');
+      gtag("js", new Date());
+      gtag("config", "G-SJ1CZBV3FF");
     </script>
 
     <meta charset="UTF-8" />
@@ -24,17 +24,19 @@
       href="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096"
       type="image/png"
     />
+
     <style>
       :root {
-        --bg-color: #0f0f0f;
-        --nav-gradient-start: #191919;
-        --nav-gradient-end: #0f0f0f;
-        --primary-color: #39ff14; /* neon green */
-        --hover-button-color: #2ccf11;
-        --secondary-color: #1f1f1f;
+        /* Base colors: using a YouTube-like dark mode palette */
+        --bg-color: #181818;
+        --nav-bg: #202020;
+        --header-overlay: rgba(24, 24, 24, 0.7);
+        --section-bg: #242424;
         --box-bg: #2a2a2a;
-        --text-color: #ddd;
-        --lightning-color: var(--primary-color);
+        --text-color: #ffffff;
+        --accent-color: #ff0000; /* red accent similar to YouTube */
+        --button-bg: #ff0000;
+        --button-hover-bg: #e60000;
       }
 
       * {
@@ -48,182 +50,114 @@
       }
 
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
-        overflow-x: hidden;
         min-height: 100vh;
+        overflow-x: hidden;
       }
 
-      /* Navigation */
+      /* Navigation similar to YouTube dark mode */
       nav {
+        background-color: var(--nav-bg);
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, var(--nav-gradient-start), var(--nav-gradient-end));
-        padding: 1.5rem 3rem;
+        right: 0;
+        padding: 1rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         z-index: 100;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
 
-      nav a {
-        color: #fff;
+      nav .logo a {
+        color: var(--text-color);
         text-decoration: none;
         font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      nav div a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0 1rem;
         text-transform: uppercase;
-        margin: 0 30px;
         transition: color 0.3s ease;
       }
 
-      nav a:hover {
-        color: var(--primary-color);
+      nav div a:hover {
+        color: var(--accent-color);
       }
 
-      /* Header & Lightning Effects */
+      /* Header / Hero */
       header {
         height: 100vh;
         position: relative;
-        overflow: hidden;
-        background: url('https://via.placeholder.com/1920x1080/000000/fff?text=Deuce+Bot') no-repeat center center/cover;
-        /* Layer a dark-green overlay for mood */
-        background-blend-mode: multiply;
-        background-color: #000;
+        /* Background image with a dark overlay for a cool, muted effect */
+        background: url("https://via.placeholder.com/1920x1080/181818/fff?text=Deuce+Bot")
+          no-repeat center center/cover;
       }
 
-      /* Dark overlay gradient */
-      header::after {
+      header::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 50, 0, 0.3));
-        pointer-events: none;
+        background: var(--header-overlay);
         z-index: 1;
       }
 
-      /* Content container (ensures proper stacking) */
       header .content {
         position: relative;
         z-index: 2;
-        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100%;
+        text-align: center;
       }
 
       header img {
         border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        margin-bottom: 20px;
-        border: 3px solid var(--primary-color);
-        box-shadow: 0 0 20px var(--primary-color);
+        width: 130px;
+        height: 130px;
+        border: 2px solid var(--accent-color);
+        margin-bottom: 1rem;
       }
 
-      .glitch {
-        font-size: 4rem;
-        font-weight: 700;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-        color: #fff;
-        text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
-        position: relative;
-      }
-
-      .glitch::before,
-      .glitch::after {
-        content: attr(data-text);
-        position: absolute;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        color: var(--primary-color);
-      }
-
-      .glitch::before {
-        animation: glitchTop 1.5s infinite linear alternate-reverse;
-        top: -2px;
-      }
-
-      .glitch::after {
-        animation: glitchBottom 1.5s infinite linear alternate-reverse;
-        top: 2px;
-      }
-
-      @keyframes glitchTop {
-        0% {
-          clip: rect(0, 9999px, 0, 0);
-          transform: translate(-1px, -1px);
-        }
-        10% {
-          clip: rect(0, 9999px, 5px, 0);
-          transform: translate(1px, -1px);
-        }
-        20% {
-          clip: rect(5px, 9999px, 10px, 0);
-          transform: translate(-2px, 0);
-        }
-        30% {
-          clip: rect(10px, 9999px, 15px, 0);
-          transform: translate(1px, 2px);
-        }
-        100% {
-          clip: rect(0, 9999px, 0, 0);
-          transform: translate(0, 0);
-        }
-      }
-
-      @keyframes glitchBottom {
-        0% {
-          clip: rect(85px, 9999px, 90px, 0);
-          transform: translate(1px, 1px);
-        }
-        10% {
-          clip: rect(80px, 9999px, 85px, 0);
-          transform: translate(-1px, 1px);
-        }
-        20% {
-          clip: rect(75px, 9999px, 80px, 0);
-          transform: translate(2px, 0);
-        }
-        30% {
-          clip: rect(70px, 9999px, 75px, 0);
-          transform: translate(-1px, -2px);
-        }
-        100% {
-          clip: rect(85px, 9999px, 90px, 0);
-          transform: translate(0, 0);
-        }
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
       }
 
       .button-group {
         display: flex;
-        gap: 30px;
-        margin-top: 20px;
+        gap: 1rem;
+        margin-top: 1rem;
       }
 
       .button {
-        background-color: var(--primary-color);
+        background-color: var(--button-bg);
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 9999px;
         color: #000;
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
         font-weight: 600;
         text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
         text-decoration: none;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        transition: all 0.3s ease;
       }
 
       .button:hover {
-        background-color: var(--hover-button-color);
+        background-color: var(--button-hover-bg);
         transform: scale(1.05);
       }
 
@@ -231,127 +165,56 @@
         transform: scale(0.98);
       }
 
-      /* Lightning Bolt Elements */
-      .lightning {
-        position: absolute;
-        pointer-events: none;
-        background: var(--lightning-color);
-        filter: drop-shadow(0 0 10px var(--lightning-color));
-        opacity: 0;
-        z-index: 3;
-        animation: lightningFlash 5s infinite;
-      }
-
-      /* First lightning bolt */
-      .bolt1 {
-        left: 20%;
-        top: 10%;
-        width: 60px;
-        height: 180px;
-        clip-path: polygon(
-          50% 0%, 
-          65% 35%, 
-          55% 35%, 
-          60% 55%, 
-          40% 55%, 
-          45% 80%, 
-          25% 55%, 
-          35% 55%, 
-          30% 35%, 
-          40% 35%
-        );
-        animation-delay: 2s;
-      }
-
-      /* Second lightning bolt */
-      .bolt2 {
-        right: 15%;
-        top: 5%;
-        width: 50px;
-        height: 150px;
-        clip-path: polygon(
-          50% 0%, 
-          60% 40%, 
-          45% 40%, 
-          55% 70%, 
-          40% 70%, 
-          50% 100%, 
-          30% 70%, 
-          45% 70%, 
-          35% 40%, 
-          50% 40%
-        );
-        animation-delay: 3.5s;
-      }
-
-      @keyframes lightningFlash {
-        0%,
-        80%,
-        100% {
-          opacity: 0;
-          transform: scaleY(0.8) translateY(0);
-        }
-        81%,
-        82% {
-          opacity: 1;
-          transform: scaleY(1.2) translateY(-10px);
-        }
-      }
-
-      /* Section Styles */
+      /* Sections – using dark backgrounds with flat design */
       section {
         padding: 4rem 2rem;
-        background-color: var(--secondary-color);
+        background-color: var(--section-bg);
       }
 
       .section-title {
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--primary-color);
         text-align: center;
         margin-bottom: 2rem;
+        color: var(--accent-color);
       }
 
       .box {
         background-color: var(--box-bg);
-        border-radius: 12px;
+        border-radius: 8px;
         padding: 2rem;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
         margin-bottom: 2rem;
         transition: transform 0.3s ease;
       }
 
       .box:hover {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
       }
 
       .box h3 {
         font-size: 1.75rem;
-        font-weight: 600;
-        color: #fff;
         margin-bottom: 1rem;
-      }
-
-      .box p,
-      .box ul li {
-        font-size: 1.125rem;
-        opacity: 0.9;
+        font-weight: 600;
       }
 
       .box ul {
         list-style: none;
-        margin: 1rem 0;
-        padding-left: 1.5rem;
+        padding-left: 1rem;
       }
 
+      .box ul li {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Footer */
       footer {
-        background-color: #111;
-        color: #bbb;
+        background-color: var(--nav-bg);
         padding: 2rem;
         text-align: center;
         font-size: 1rem;
-        width: 100%;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
       }
 
       footer p {
@@ -364,18 +227,18 @@
 
       @media (max-width: 768px) {
         nav {
-          padding: 1rem 1.5rem;
+          padding: 0.8rem 1rem;
         }
-        nav a {
-          margin: 0 15px;
+        nav div a {
+          margin: 0 0.5rem;
           font-size: 0.9rem;
         }
         header img {
-          width: 120px;
-          height: 120px;
+          width: 100px;
+          height: 100px;
         }
-        .glitch {
-          font-size: 3rem;
+        header h1 {
+          font-size: 2.5rem;
         }
         .section-title {
           font-size: 2rem;
@@ -383,19 +246,20 @@
         .box h3 {
           font-size: 1.5rem;
         }
-        .box,
-        .button {
-          padding: 1.5rem;
-        }
       }
     </style>
   </head>
   <body>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#commands" id="commandsButton">Commands</a>
-      <a href="#tos">Terms</a>
-      <a href="#privacy">Privacy</a>
+      <div class="logo">
+        <a href="#home">Deuce Bot</a>
+      </div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#commands" id="commandsButton">Commands</a>
+        <a href="#tos">Terms</a>
+        <a href="#privacy">Privacy</a>
+      </div>
     </nav>
 
     <header id="home">
@@ -404,7 +268,7 @@
           src="https://cdn.discordapp.com/avatars/1232290597893832777/91cf5a5221e9871743cdf107d40ede4d.png?size=4096"
           alt="Profile Photo"
         />
-        <h1 class="glitch" data-text="Deuce Bot">Deuce Bot</h1>
+        <h1>Deuce Bot</h1>
         <div class="button-group">
           <a
             href="https://discord.com/oauth2/authorize?client_id=1232290597893832777&permissions=8&integration_type=0&scope=bot"
@@ -420,9 +284,6 @@
           >
         </div>
       </div>
-      <!-- Lightning bolt elements -->
-      <div class="lightning bolt1"></div>
-      <div class="lightning bolt2"></div>
     </header>
 
     <section id="tos">
@@ -432,9 +293,7 @@
         <ul>
           <li>Respect other users and their privacy.</li>
           <li>Do not use the bot for illegal activities.</li>
-          <li>
-            Maintain respectful behavior while interacting with the bot.
-          </li>
+          <li>Maintain respectful behavior while interacting with the bot.</li>
         </ul>
       </div>
     </section>
@@ -444,8 +303,8 @@
       <div class="box">
         <h3>Data Collection</h3>
         <p>
-          We may collect information such as user interactions and
-          preferences for the purpose of improving the bot's functionality.
+          We may collect information such as user interactions and preferences
+          for the purpose of improving the bot's functionality.
         </p>
         <p>Your personal data will not be shared with third parties.</p>
       </div>
@@ -460,9 +319,7 @@
           <li>!historyserbia - History of Serbia</li>
           <li>!historykorea - History of Korea</li>
           <li>!byzantium - History of Byzantium</li>
-          <li>
-            !empires - Most important empires for Orthodox Christianity
-          </li>
+          <li>!empires - Most important empires for Orthodox Christianity</li>
         </ul>
       </div>
       <div class="box">
@@ -517,9 +374,11 @@
     </footer>
 
     <script>
-      document.getElementById("commandsButton").addEventListener("click", function () {
-        document.getElementById("commands").classList.toggle("hidden");
-      });
+      document
+        .getElementById("commandsButton")
+        .addEventListener("click", function () {
+          document.getElementById("commands").classList.toggle("hidden");
+        });
     </script>
   </body>
 </html>
